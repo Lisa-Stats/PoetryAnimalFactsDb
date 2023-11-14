@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Facts About Cats and Dogs</title>
+</head>
+<body>
+    <h1>Animal App</h1>
+    <h2>Cat Fact</h2>
+
+    <h3>{{ cat_data }}</h3>
+
+    <form action="" method="get">
+      <input type="submit" name="cat" value="Get Cat Fact" />
+    </form>
+</body>
+<h3>Last 3 Facts About Cats</h3>
+<table style="padding-bottom:50px">
+  {% if cat_facts %}
+  <tr>
+    <th>Number</th>
+    <th>Animal</th>
+    <th>Fact</th>
+  </tr>
+  {% endif %}
+  {% for fact in cat_facts %}
+  <tr>
+    <td>{{ fact.id}}</td>
+    <td>{{ fact.animal }}</td>
+    <td>{{ fact.fact }}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+<body>
+  <h2>Dog Fact</h2>
+
+  <h3>{{ dog_data }}</h3>
+
+    <form action="" method="get">
+      <input type="submit" name="dog" value="Get Dog Fact" />
+    </form>
+</body>
+<table>
+  <h3>Last 3 Facts About Dogs</h3>
+  {% if dog_facts %}
+  <tr>
+    <th>Number</th>
+    <th>Animal</th>
+    <th>Fact</th>
+  </tr>
+  {% endif %}
+  {% for fact in dog_facts %}
+  <tr>
+    <td>{{ fact.id}}</td>
+    <td>{{ fact.animal }}</td>
+    <td>{{ fact.fact }}</td>
+  </tr>
+  {% endfor %}
+</table>
+</html>
