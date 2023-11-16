@@ -2,7 +2,7 @@
 name = "poetryanimalfactsdb"
 version = "0.1.0"
 description = ""
-authors = ["Lisa Stats <lisa.stathopulos@gmail.com>"]
+authors = ["Lisa Stats"]
 readme = "README.md"
 
 [tool.poetry.dependencies]

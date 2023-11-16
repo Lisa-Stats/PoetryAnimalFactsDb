@@ -10,12 +10,14 @@ services:
     restart: always
     volumes:
       - db_data:/var/lib/postgresql/data
-    # networks:
-    #   kind:
+    networks:
+      - python
+      - kind
 
 volumes:
   db_data:
 
-# networks:
-#   kind:
-#     external: true
+networks:
+  python:
+  kind:
+    external: true
