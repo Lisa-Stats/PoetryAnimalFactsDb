@@ -1,6 +1,7 @@
 import requests
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
+from healthcheck import HealthCheck
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://user:password@postgresql:5432/postgres"
@@ -12,6 +13,8 @@ class Fact(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     animal = db.Column(db.String(10))
     fact = db.Column(db.Text())
+
+health = HealthCheck()
 
 def cat_request():
     cat = requests.get("https://meowfacts.herokuapp.com")
@@ -61,6 +64,19 @@ def main():
                                cat_data=cat_request(), cat_facts=cat_list())
     else:
         return render_template("index.html")
+
+def db_available():
+    try:
+        Fact.query.all()
+        return True, "Server and DB OK"
+    except Exception as e:
+        # e holds description of the error
+        error_text = "<p>The error:<br>" + str(e) + "</p>"
+        return error_text
+
+health.add_check(db_available)
+
+app.add_url_rule("/healthcheck", "healthcheck", view_func=lambda: health.run())
 
 if __name__ == "__main__":
     with app.app_context():

@@ -497,6 +497,20 @@ files = [
 ]
 
 [[package]]
+name = "py-healthcheck"
+version = "1.10.1"
+description = "Adds healthcheck endpoints to Flask or Tornado apps"
+optional = false
+python-versions = "*"
+files = [
+    {file = "py-healthcheck-1.10.1.tar.gz", hash = "sha256:60bbaab729a89098f0e6723ba5b6ab4ca8bde79b1a1bdb324f2b9e39df33780d"},
+    {file = "py_healthcheck-1.10.1-py3-none-any.whl", hash = "sha256:2c340026acda509073667476e1bd45b66d7c8d345cd6aa8f91b156edd7bd4e02"},
+]
+
+[package.dependencies]
+six = "*"
+
+[[package]]
 name = "requests"
 version = "2.31.0"
 description = "Python HTTP for Humans."
@@ -516,6 +530,17 @@ urllib3 = ">=1.21.1,<3"
 [package.extras]
 socks = ["PySocks (>=1.5.6,!=1.5.7)"]
 use-chardet-on-py3 = ["chardet (>=3.0.2,<6)"]
+
+[[package]]
+name = "six"
+version = "1.16.0"
+description = "Python 2 and 3 compatibility utilities"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
+files = [
+    {file = "six-1.16.0-py2.py3-none-any.whl", hash = "sha256:8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254"},
+    {file = "six-1.16.0.tar.gz", hash = "sha256:1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"},
+]
 
 [[package]]
 name = "sqlalchemy"
@@ -652,4 +677,4 @@ watchdog = ["watchdog (>=2.3)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "02c823d0c991440efc577a2aac5eda33b59d9f28eb725f01cd926e62c0923a03"
+content-hash = "b7c1582e45efbefa05a8947fa863c62ce4bc27bbb95cd64e731efb56371b9050"
