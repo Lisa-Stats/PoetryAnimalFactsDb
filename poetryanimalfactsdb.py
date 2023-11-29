@@ -14,8 +14,6 @@ class Fact(db.Model):
     animal = db.Column(db.String(10))
     fact = db.Column(db.Text())
 
-health = HealthCheck()
-
 def cat_request():
     cat = requests.get("https://meowfacts.herokuapp.com")
     cat_json = cat.json()
@@ -73,6 +71,8 @@ def db_available():
         # e holds description of the error
         error_text = "<p>The error:<br>" + str(e) + "</p>"
         return error_text
+
+health = HealthCheck()
 
 health.add_check(db_available)
 

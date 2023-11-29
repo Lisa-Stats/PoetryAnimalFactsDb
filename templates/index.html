@@ -18,14 +18,12 @@
 <table style="padding-bottom:50px">
   {% if cat_facts %}
   <tr>
-    <th>Number</th>
     <th>Animal</th>
     <th>Fact</th>
   </tr>
   {% endif %}
   {% for fact in cat_facts %}
   <tr>
-    <td>{{ fact.id}}</td>
     <td>{{ fact.animal }}</td>
     <td>{{ fact.fact }}</td>
   </tr>
@@ -45,14 +43,12 @@
   <h3>Last 3 Facts About Dogs</h3>
   {% if dog_facts %}
   <tr>
-    <th>Number</th>
     <th>Animal</th>
     <th>Fact</th>
   </tr>
   {% endif %}
   {% for fact in dog_facts %}
   <tr>
-    <td>{{ fact.id}}</td>
     <td>{{ fact.animal }}</td>
     <td>{{ fact.fact }}</td>
   </tr>
