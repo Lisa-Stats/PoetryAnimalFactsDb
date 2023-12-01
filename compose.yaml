@@ -1,0 +1,22 @@
+services:
+  postgresql:
+    container_name: postgresql-1
+    image: postgres:15
+    environment:
+      - POSTGRES_DB
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
+    ports:
+      - ${POSTGRES_PORT}:5432
+    restart: always
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    networks:
+      - python
+
+volumes:
+  db_data:
+
+networks:
+  python:
+    name: python

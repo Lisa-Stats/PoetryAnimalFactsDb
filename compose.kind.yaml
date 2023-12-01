@@ -1,5 +1,6 @@
 services:
   postgresql:
+    container_name: postgresql-1
     image: postgres:15
     environment:
       - POSTGRES_DB
@@ -11,13 +12,11 @@ services:
     volumes:
       - db_data:/var/lib/postgresql/data
     networks:
-      - python
       - kind
 
 volumes:
   db_data:
 
 networks:
-  python:
   kind:
     external: true
